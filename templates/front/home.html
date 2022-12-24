@@ -1,0 +1,179 @@
+{% extends 'front/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="parallax filter-black">
+        <div class="parallax-image">
+            <img src="{% static 'front/img/makkah.jpeg' %}" alt="..." />
+            
+        </div>
+        <div class="small-info">
+            <h1>JADWAL SHOLAT</h1>
+            <h3>إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَوْقُوتًا
+
+                </h3>
+        </div>
+    </div>
+
+    <div class="container">
+    <table class="table caption-top">
+        <caption>
+          <center> <h3 text-align="center">JADWAL IMAM</center>
+            </caption>
+          <tr> 
+            <th scope="col">ID</th>
+            <th scope="col">Nama Imam</th>
+            <th scope="col">Jadwal Sholat</th>
+            <th scope="col">Kategori</th>
+            <th scope="col">Waktu Sholat</th>
+            <th scope="col">Tanggal</th>
+          </tr>
+        <tbody>
+            {% for jadwal in jadwal_sholat %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ jadwal.nama }}</td>
+            <td>{{ jadwal.jadwal }}</td>
+            <td>{{ jadwal.kategori }}</td>
+            <td>{{ jadwal.waktu }}</td>
+            <td>{{ jadwal.tanggal }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+
+    <div class="container">
+      <table class="table caption-top table-dark">
+          <caption>
+              <center> <h3 text-align="center">JADWAL SHOLAT SAMARINDA</center>
+          </h3>
+          
+              </caption>
+              <!-- Button tidak berfungsi-->
+              {% comment %} <a class="btn btn-dark" href="{%url 'doa_muslim' %}">Refresh</a>  {% endcomment %}
+            <tr> 
+              <th scope="col">ID</th>
+              <th scope="col">Tanggal</th>
+              <th scope="col">Imsyak</th>
+              <th scope="col">Shubuh</th>
+              <th scope="col">Terbit</th>
+              <th scope="col">Dhuha</th>
+              <th scope="col">Dzuhur</th>
+              <th scope="col">Ashar</th>
+              <th scope="col">Maghrib</th>
+              <th scope="col">Isya</th>
+            </tr>
+          <tbody>
+              {% for z in api_jadwal %}
+            <tr>
+              <th scope="row">{{ forloop.counter }}</th>
+              <td>{{ z.tanggal }}</td>
+              <td>{{ z.imsyak }}</td>
+              <td>{{ z.shubuh }}</td>
+              <td>{{ z.terbit }}</td>
+              <td>{{ z.dhuha }}</td>
+              <td>{{ z.dzuhur }}</td>
+              <td>{{ z.ashr }}</td>
+              <td>{{ z.magrib }}</td>
+              <td>{{ z.isya }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+    <div class="section section-description">
+           <div class="container">
+               <h2 class="section-title class=">Kaidah penentuan jadwal shalat</h2>
+               <div class="row">
+                    <div class="col-md-6">
+                       <p align="justify">Kaidah penentuan jadwal shalat yaitu “Pergerakan  Matahari ” dilihat dari bumi. Dengan berkembangnya ilmu pengetahuan pelbagai kemudahan terus dibuat dan membuat lebih praktis  dalam segala hal termasuk dalam beribadah khususnya shalt fardu. Diatas ini jadwal shalat fardu, semoga bisa mempermudah kita untuk sholat pada waktunya.</p>
+                      <p align="justify">Jaman dahulu sebelum kaum muslimin menemukan hisab/perhitungan falak/astronomi, waktu shalat ditentukan berdasarkan pengamatan terhadap gejala alam dengan melihat langsung matahari. Kemudian berkembang dengan dibuatnya Jam Surya atau Jam Matahari   serta Jam Istiwa atau sering  disebut Tongkat Istiwa dengan kaidah bayangan matahari. </p>
+                   </div>
+                   <div class="col-md-6">
+                        <div id="description-carousel" class="carousel fade" data-ride="carousel">
+                              <!-- Wrapper for slides -->
+                              <div class="carousel-inner">
+                                <div class="item active">
+                                  <img src="{% static 'front/img/wau.jpeg' %}" alt="..." />
+                                </div>
+                                <div class="item">
+                                  <img src="{% static 'front/img/makkah.jpeg' %}" alt="..." />
+                                </div>
+                                <div class="item">
+                                  <img src="{% static 'front/img/sunset.jpeg' %}" alt="..." />
+                                </div>
+                              </div>
+                              <ol class="carousel-indicators">
+                                <li data-target="#description-carousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#description-carousel" data-slide-to="1"></li>
+                                <li data-target="#description-carousel" data-slide-to="2"></li>
+                              </ol>
+                        </div>
+                   </div>
+                </div>
+               </div>
+           </div>
+       </div><!-- section -->
+
+        <div class="container">
+            <div class="row" class="text-center">
+                <p align="justify" >Segala puji hanya milik Allah Subhanahu wa Ta’ala yang telah mengutus para Rasul, menurunkan al-Qur-an, membuat syari’at, menetapkan hukum, dan menjelaskan halal dan haram kepada hamba-hamba-Nya. Aku bersaksi bahwasa tidak ada ilah yang berhak diibadahi dengan benar kecuali Allah yang Esa, tidak ada sekutu bagi-Nya, dan aku bersaksi bahwa Nabi Muhammad shallallahu ‘alaihi wa sallam (صلى الله عليه و سلم) adalah hamba dan Rasul-Nya. Semoga shalawat dan salam dicurahkan kepada Nabi shallallahu ‘alaihi wa sallam (صلى الله عليه و سلم), keluarganya dan para Sahabatnya.</p>
+                <p align="justify" >Semua kaum muslim sepakat bahwa sholat lima waktu harus dikerjakan pada waktunya, dalilnya adalah firman Allah Subhanahu wa Ta’ala,
+
+                    إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَوْقُوتًا
+                    “Sesungguhnya shalat itu adalah fardhu/wajib yang ditentukan waktunya atas orang-orang yang beriman”. [ QS. An Nisa’ (4) : 103] </p>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <h4 class="text-center"></h4>
+        <div class="card-footer text-center">
+            <p class="text-center">________</p>
+        </div>
+      </div>
+    </div><!-- /.container -->
+<!-- Projects -->
+     <div class="social-line">
+         <div class="container">
+            <div class="row">
+                 <div class="col-md-3">
+                     <a href="" class="btn btn-round btn-fill btn-social btn-facebook">
+                         <i class="fa fa-facebook-square"></i> Facebook
+                     </a>
+                 </div>
+                  <div class="col-md-3">
+                     <a href="" class="btn btn-round btn-fill btn-social btn-twitter">
+                         <i class="fa fa-twitter"></i> Twitter
+                     </a>
+                 </div>
+                  <div class="col-md-3">
+                     <a href="" class="btn btn-round btn-fill btn-social btn-google">
+                         <i class="fa fa-google-plus-square"></i> Google+
+                     </a>
+                 </div>
+                 <div class="col-md-3">
+                     <a href="" class="btn btn-round btn-fill btn-social btn-pinterest">
+                         <i class="fa fa-pinterest"></i> Pinterest
+                     </a>
+                 </div>
+            </div>
+         </div>
+     </div>
+
+
+    <footer class="footer footer-big">
+        <!-- .footer-black is another class for the footer, for the transparent version, we recommend you to change the url of the image with your favourite image.          -->
+            <div class="copyright">
+                &copy; Andi Nur Halim
+            </div>
+        </div>
+    </footer>
+
+
+</div> <!-- wrapper -->
+{% endblock content %}
+

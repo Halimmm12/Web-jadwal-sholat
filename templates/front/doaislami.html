@@ -1,0 +1,23 @@
+{% extends 'front/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="parallax filter-black">
+        <div class="parallax-image">
+            <img src="{% static 'front/img/makkah.jpeg' %}" alt="..." />
+            
+        </div>
+        <div class="small-info">
+            <h1>DOA ISLAMI</h1>
+        </div>
+    </div>
+    </div>
+            {% for z in doa_islami %}
+                <center><h2><span id="Doa_agar_diberikan_keturunan_yang_shalih">{{z.doa}}</span></h2></center>
+                <center><p style="text-align: center;">{{z.latin}}</p></center>
+                <center><p style="text-align: center;">رَ{{z.ayat}}</p></center>
+                <center><p>“<em>{{z.artinya}}</p></center>
+            {% endfor %}
+{% endblock %}
+
